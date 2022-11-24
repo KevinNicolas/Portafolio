@@ -10,8 +10,8 @@ export interface AboutMeSchema {
 
 export interface ExperienceSchema {
   id: number;
-  from: Date;
-  to: Date;
+  from: string;
+  to: string;
   title: string;
   description: string;
 }

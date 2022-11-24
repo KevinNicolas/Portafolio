@@ -1,6 +1,6 @@
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
 import create from "zustand";
-import { AboutMeSchema, ExperienceSchema } from "./models";
+import { AboutMeSchema, ExperienceSchema } from "@models";
 
 import getFromDatabase from "./utils/get-from-database";
 
