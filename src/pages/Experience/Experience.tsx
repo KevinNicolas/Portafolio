@@ -15,7 +15,7 @@ export const Experience = () => {
   useEffect(() => {
     const fetchExperiences = async () => {
       const fetchedExperiences = await getExperiences();
-      setExperiences(fetchedExperiences);
+      setExperiences(fetchedExperiences.reverse());
     };
 
     fetchExperiences();
@@ -34,11 +34,6 @@ export const Experience = () => {
             <h2>Experiencia</h2>
           </motion.div>
           <div className="experiences">
-            {/* <Experiencecard delay={0.4} />
-            <Experiencecard delay={0.5} />
-            <Experiencecard delay={0.6} />
-            <Experiencecard delay={0.7} />
-            <Experiencecard delay={0.8} /> */}
             {experiences.map((experienceData, index) => (
               <Experiencecard key={index} experienceData={experienceData} delay={0.2 + index * 0.1} />
             ))}

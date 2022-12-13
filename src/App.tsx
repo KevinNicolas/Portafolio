@@ -2,6 +2,7 @@ import { Router } from "./Routes";
 
 import { Theme, GlobalStyles, darkTheme, lightTheme } from "@assets/styles";
 import { useThemeStore } from "@store/theme";
+import { Cursor } from "@components";
 import { useEffect } from "react";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
     <>
       <GlobalStyles theme={colors} />
       <Theme theme={colors} />
+      <Cursor />
       <Router />;
     </>
   );

@@ -4,7 +4,9 @@ import { createGlobalStyle } from "styled-components";
 import { Colors } from "./Theme";
 
 export const GlobalStyles = createGlobalStyle<{ theme: Colors }>`
+  
   * {
+    cursor: none;
     outline: none;
     border: none;
     margin: 0;
@@ -12,6 +14,10 @@ export const GlobalStyles = createGlobalStyle<{ theme: Colors }>`
     text-decoration: 0;
     list-style: none;
     box-sizing: border-box !important;
+
+    &:hover {
+      cursor: none;
+    }
   }
 
   #root {

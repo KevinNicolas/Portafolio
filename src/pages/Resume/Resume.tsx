@@ -5,7 +5,7 @@ export const Resume = () => {
   return (
     <ResumeStyles>
       <Introduction />
-      <ProfileSelect />
+      {/* <ProfileSelect /> */}
       <Divisor />
       <KnowTecnologies />
       <Projects />

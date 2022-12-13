@@ -19,7 +19,6 @@ export const RootStyles = styled.div`
       color: white;
       background: transparent;
       font-size: 1.2rem;
-      cursor: pointer;
     }
   }
 

@@ -20,13 +20,14 @@ import {
   SiTailwindcss,
   SiTypescript,
   SiVuedotjs,
+  SiNextdotjs,
 } from "react-icons/si";
 
 import { FiGlobe } from "react-icons/fi";
 
 const generalTecnologies: ISkill[] = [
   {
-    name: "NodeJs",
+    name: "Node.Js",
     icon: SiNodedotjs,
   },
   {
@@ -65,15 +66,19 @@ const frontendTecnologies: Record<string, ISkill[]> = {
 
   Frameworks: [
     {
-      name: "ReactJs",
+      name: "React.Js",
       icon: SiReact,
+    },
+    {
+      name: "Next.Js",
+      icon: SiNextdotjs,
     },
     {
       name: "Vue",
       icon: SiVuedotjs,
     },
     {
-      name: "NuxtJs",
+      name: "Nuxt.Js",
       icon: SiNuxtdotjs,
     },
   ],
@@ -108,7 +113,7 @@ const frontendTecnologies: Record<string, ISkill[]> = {
 const backendTecnologies: Record<string, ISkill[]> = {
   Frameworks: [
     {
-      name: "NestJs",
+      name: "Nest.Js",
       icon: SiNestjs,
     },
     {

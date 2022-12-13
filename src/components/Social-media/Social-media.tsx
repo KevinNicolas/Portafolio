@@ -34,6 +34,7 @@ export const SocialMedia = () => {
             initial={{ opacity: 0 }}
             exit={{ opacity: [1, 0] }}
             transition={{ duration: 0.3, delay: 0.1 * socialMediaLinks.length - 0.1 * index }}
+            target="_blank"
           >
             {icon({})}
           </motion.a>
