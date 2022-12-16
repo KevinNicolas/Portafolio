@@ -106,7 +106,7 @@ export const KnowTecnologies = () => {
     <ExitPresence>
       <KnowTecnologiesStyles>
         <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1, transition: { duration: 1 } }} viewport={{ once: true }} exit={{ opacity: 0, transition: { duration: 1 } }}>
-          Principales tecnologias conocidas {isInView.toString()}
+          Principales tecnologias conocidas
         </motion.h2>
         <div className="tecnologies">
           {tecnologiesToShow.map(({ color, icon, label }, index) => (

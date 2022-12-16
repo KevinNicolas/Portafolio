@@ -1,6 +1,7 @@
 export interface DatabaseSchema {
   aboutme: AboutMeSchema;
   experience: ExperienceSchema;
+  files: FilesSchema;
 }
 
 export interface AboutMeSchema {
@@ -14,4 +15,12 @@ export interface ExperienceSchema {
   to: string;
   title: string;
   description: string;
+}
+
+export interface FilesSchema {
+  id: number;
+  name: string;
+  file_path: string;
+  url: string | null;
+  tag: "cv" | "project" | "default";
 }

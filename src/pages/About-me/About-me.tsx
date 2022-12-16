@@ -40,7 +40,12 @@ export const AboutMe = () => {
             </span>
           </motion.div>
           {!!aboutMeContent && (
-            <motion.div className="about-me" initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1 } }} exit={{ opacity: 0, transition: { duration: 1 } }}>
+            <motion.div
+              className="about-me"
+              initial={{ opacity: 0, maxWidth: "120ch" }}
+              animate={{ opacity: 1, transition: { duration: 1 } }}
+              exit={{ opacity: 0, transition: { duration: 1 } }}
+            >
               <p>{aboutMeContent}</p>
             </motion.div>
           )}

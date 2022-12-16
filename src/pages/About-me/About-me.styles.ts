@@ -25,6 +25,7 @@ export const AboutmeStyles = styled.div`
     display: grid;
     grid-template-columns: minmax(300px, 450px) minmax(400px, 1fr);
     grid-template-rows: calc(100vh - 200px);
+    margin: 0 auto;
 
     .brand {
       display: flex;

@@ -5,6 +5,9 @@ import { ExitPresence } from "@components";
 import { useThemeStore } from "@store/theme";
 
 import { ProjectStyles } from "./Project.styles";
+import { useSupabaseStore } from "@store/supabase";
+import { FilesSchema } from "@models";
+import { useSupabaseStorage } from "src/hooks";
 interface ProjectInfo {
   image: string;
   name: string;
@@ -50,11 +53,20 @@ const projects: { react: ProjectInfo[]; vue: ProjectInfo[] } = {
 
 export const Projects = () => {
   const { profile, colors } = useThemeStore();
+  const { getPublicUrl } = useSupabaseStorage();
+  const getFilesInfo = useSupabaseStore(({ getFilesInfo }) => getFilesInfo);
 
   const [projectsToShow, setProjectsToShow] = useState(projects[profile]);
+  const [projectsInfo, setprojectsInfo] = useState<FilesSchema[]>([]);
 
   useEffect(() => {
     setProjectsToShow(projects[profile]);
+    const asyncEffect = async () => {
+      const filesInfo = await getFilesInfo();
+      setprojectsInfo(filesInfo.filter(({ tag }) => tag === "project").splice(0, 3));
+      console.info(filesInfo.filter(({ tag }) => tag === "project").splice(0, 3));
+    };
+    asyncEffect();
   }, [profile]);
 
   return (
@@ -64,7 +76,7 @@ export const Projects = () => {
           Algunos proyectos creados con <span className="profile">{profile}</span>
         </motion.h2>
         <div className="projects">
-          {projectsToShow.map(({ image, name, url }, index) => (
+          {projectsInfo.map(({ name, url, file_path }, index) => (
             <motion.div
               key={index}
               className="project-container"
@@ -76,8 +88,14 @@ export const Projects = () => {
               transition={{ duration: 0.3 }}
               exit={{ opacity: 0, scale: 0, transition: { duration: 1 } }}
             >
-              <img src={image} alt="Project image" />
-              <span>{name}</span>
+              <motion.a
+                target="_blank"
+                href={url ?? ""}
+                initial={{ width: "100%", height: "100%", display: "flex", placeContent: "center", flexDirection: "column", textAlign: "center", gap: "2ch" }}
+              >
+                <img src={getPublicUrl(file_path)} alt="Project image" />
+                <span>{name}</span>
+              </motion.a>
             </motion.div>
           ))}
         </div>

@@ -15,8 +15,8 @@ export const Introduction = () => {
           Frontend developer
         </motion.h1>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, delay: 0.5 } }} exit={{ opacity: 0, transition: { duration: 0.5, delay: 0.2 } }}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis aliquam explicabo accusamus fugiat ea neque officia eos temporibus facere? Cum molestias assumenda
-          pariatur ipsam numquam ipsum voluptatibus quas voluptatem!
+          Me desempeño actualmente como desarrollador web fullstack, si bien mi principal conocimiento proviene de javascript también he tenido contacto con lenguajes como: C++,
+          Java, C# y C, siendo este último con el que me inicie en el mundo de la programación.
         </motion.p>
       </IntroductionStyles>
     </ExitPresence>
