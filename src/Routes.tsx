@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate, useSearchParams } from "react-r
 
 import { Header } from "@components";
 import { NAVIGATION_ROUTES, PORTFOLIO_ROUTES } from "@models";
-import { AboutMe, Experience, Home, Resume, Root, Skills } from "@pages";
+import { AboutMe, Experience, Resume, Root, Skills } from "@pages";
 import { useThemeStore } from "@store/theme";
 
 export const Router = () => (
@@ -18,7 +18,7 @@ const Pages = () => {
       <Routes>
         <Route path="/" element={<Root />} />
         <Route path={`${NAVIGATION_ROUTES.ROOT.PORTFOLIO}/*`} element={<Portfolio />} />
-        <Route path="*" element={<Home />} />
+        <Route path="*" element={<Root />} />
       </Routes>
     </>
   );

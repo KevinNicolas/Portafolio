@@ -4,7 +4,7 @@ import { useSupabaseStorage } from "src/hooks";
 
 export const useDownloadCv = () => {
   const { getFilesInfo } = useSupabaseStore();
-  const { downloadFile } = useSupabaseStorage();
+  const { downloadFile, getPublicUrl } = useSupabaseStorage();
 
   const [cvFilePath, setcvFilePath] = useState("");
   const [isLoading, setisLoading] = useState(false);
@@ -20,12 +20,10 @@ export const useDownloadCv = () => {
   }, []);
 
   const downloadCv = async () => {
-    const { data } = await downloadFile(cvFilePath);
-    if (!data) return;
-    const objectUrl = window.URL.createObjectURL(new Blob([data], { type: "application/pdf" }));
+    const href = getPublicUrl(cvFilePath);
     const temporalLink = document.createElement("a");
-    temporalLink.href = objectUrl;
-    temporalLink.setAttribute("download", "Kevin_Leguiza_Gaggero-Cv.pdf");
+    temporalLink.href = href;
+    temporalLink.target = "_blank";
     temporalLink.click();
   };
 

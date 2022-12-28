@@ -7,7 +7,7 @@ import { SocialMediaStyles } from "./Social-media.styles";
 
 export const SocialMedia = () => {
   const socialMediaLinks: { className: string; href: string; icon: IconType }[] = [
-    { className: "linkedin", href: "https://www.linkedin.com/in/kevin-nicolas-leguiza-gaggero-1460121b5/", icon: FiLinkedin },
+    { className: "linkedin", href: "https://www.linkedin.com/in/kevin-nicolas-leguiza-gaggero/", icon: FiLinkedin },
     { className: "github", href: "https://github.com/KevinNicolas", icon: FiGithub },
     { className: "gmail", href: "mailto:nicolaskevinleguiza@gmail.com?Subject=Contactar", icon: FiMail },
   ];
@@ -40,10 +40,6 @@ export const SocialMedia = () => {
           </motion.a>
         ))}
       </div>
-
-      {/* <button onClick={() => setShowSocialMedia(!showSocialMedia)} className={`social-media-button ${showSocialMedia ? "active" : ""}`}>
-        <FiChevronsUp />
-      </button> */}
     </SocialMediaStyles>
   );
 };
