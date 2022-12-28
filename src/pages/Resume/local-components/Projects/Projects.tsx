@@ -64,7 +64,6 @@ export const Projects = () => {
     const asyncEffect = async () => {
       const filesInfo = await getFilesInfo();
       setprojectsInfo(filesInfo.filter(({ tag }) => tag === "project").splice(0, 3));
-      console.info(filesInfo.filter(({ tag }) => tag === "project").splice(0, 3));
     };
     asyncEffect();
   }, [profile]);

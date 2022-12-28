@@ -1,17 +1,19 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useSupabaseStore } from "@store/supabase";
 
 import { ExitPresence } from "@components";
 import { useThemeStore } from "@store/theme";
 
-import { DownloadCvStyles } from "./Download-cv.styles";
 import { useSupabaseStorage } from "src/hooks";
-import { useSupabaseStore } from "@store/supabase";
-import { useEffect, useState } from "react";
+import { DownloadCvStyles } from "./Download-cv.styles";
+import { useDownloadCv } from "./hooks";
 
 export const DownloadCv = () => {
   const { colors, profile } = useThemeStore();
   const { getFilesInfo } = useSupabaseStore();
   const { downloadFile } = useSupabaseStorage();
+  const { downloadCv, isLoading } = useDownloadCv();
 
   const [cvFilePath, setcvFilePath] = useState("");
 
@@ -19,6 +21,7 @@ export const DownloadCv = () => {
     const asyncEffect = async () => {
       const files = await getFilesInfo();
       setcvFilePath(files.find(({ tag }) => tag === "cv")?.file_path ?? "");
+      console.info(cvFilePath);
     };
     asyncEffect();
   }, []);
@@ -45,9 +48,13 @@ export const DownloadCv = () => {
           whileTap={{ scale: 1.05, transition: { duration: 0.3 } }}
           exit={{ opacity: 0, scale: 0, transition: { duration: 1 } }}
         >
-          <span onClick={handleDownloadCv}>
-            Descargar CV (<span className="profile">{profile}</span>)
-          </span>
+          {isLoading ? (
+            <span className="profile">Loading...</span>
+          ) : (
+            <span onClick={downloadCv}>
+              Descargar CV (<span className="profile">{profile}</span>)
+            </span>
+          )}
         </motion.button>
       </DownloadCvStyles>
     </ExitPresence>
